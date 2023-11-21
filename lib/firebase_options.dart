@@ -53,9 +53,11 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAAoJlore888ue1_nchVsqfqijNQFbVClQ',
+    apiKey: 'AIzaSyDf3kDkUSljUfJzco9TE5cmBOhtuIB8r7c',
+    // apiKey: 'AIzaSyAAoJlore888ue1_nchVsqfqijNQFbVClQ',
     appId: '1:780067644908:ios:2174fdeea1a6a199deccc9',
-    messagingSenderId: '780067644908',
+    // messagingSenderId: '780067644908',
+    messagingSenderId: '786594059927',
     projectId: 'cdiowa-food-f1d48',
     storageBucket: 'cdiowa-food-f1d48.appspot.com',
     iosBundleId: 'com.cdiowa.food.app',

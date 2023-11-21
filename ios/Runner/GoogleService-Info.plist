@@ -5,8 +5,8 @@
 	<key>API_KEY</key>
 	<string>AIzaSyDf3kDkUSljUfJzco9TE5cmBOhtuIB8r7c</string>
 	<key>GCM_SENDER_ID</key>
-	<!-- <string>786594059927</string> -->
-	<string>780067644908</string>
+	<string>786594059927</string>
+	<!-- <string>780067644908</string> -->
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
