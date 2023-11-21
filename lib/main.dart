@@ -17,29 +17,28 @@ import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-@pragma('vm:entry-point')
-Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  await Firebase.initializeApp();
-
-  print("Handling a background message: ${message.messageId}");
-}
-
+FirebaseMessaging messaging = FirebaseMessaging.instance;
 final remoteConfig = FirebaseRemoteConfig.instance;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  prefs = await SharedPreferences
-      .getInstance(); // Инициализация локального хранилища
-  // prefs.clear();
-  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
 
   final notificationSettings =
       await FirebaseMessaging.instance.requestPermission(provisional: true);
   final apnsToken = await FirebaseMessaging.instance.getAPNSToken();
+  if (apnsToken != null) {
+    print(apnsToken);
+  }
+
+  NotificationSettings settings = await messaging.requestPermission(
+    alert: true,
+    announcement: false,
+    badge: true,
+    carPlay: false,
+    criticalAlert: false,
+    provisional: false,
+    sound: true,
+  );
 
   await remoteConfig.setConfigSettings(
     RemoteConfigSettings(
@@ -48,6 +47,10 @@ void main() async {
     ),
   );
   await NotificationServiceFb().activate();
+
+  prefs = await SharedPreferences
+      .getInstance(); // Инициализация локального хранилища
+  // prefs.clear();
 
   runApp(const MainApp()); // Запуск приложения
 }

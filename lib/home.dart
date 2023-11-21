@@ -46,7 +46,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   }
 
   void callReview() async {
-    await inAppReview.openStoreListing(appStoreId: 'ссылка_на_магазин');
+    await inAppReview.openStoreListing(appStoreId: iosAppId);
     if (await inAppReview.isAvailable()) {
       print("Calling review");
       inAppReview.requestReview();

@@ -20,6 +20,8 @@ class AppColors {
   static var accentColor = const Color(0xFF34C759);
 }
 
+final String iosAppId = "";
+
 Function updateHomeList =
     () {}; // Глобальная функция обновления списка кредитов
 

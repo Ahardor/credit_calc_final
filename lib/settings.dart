@@ -1,5 +1,6 @@
 import 'package:app/parameters.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});
@@ -46,8 +47,8 @@ class Settings extends StatelessWidget {
               height: 20,
             ),
             InkWell(
-              onTap: () => Navigator.of(context)
-                  .pushNamed("/policy"), // Политика конфиденциальности
+              onTap: () => launchUrl(
+                  Uri.https("google.com")), // Политика конфиденциальности
               child: Row(
                 children: [
                   Image.asset(
@@ -72,8 +73,8 @@ class Settings extends StatelessWidget {
               height: 20,
             ),
             InkWell(
-              onTap: () => Navigator.of(context)
-                  .pushNamed("/terms"), // Пользовательское соглашение
+              onTap: () => launchUrl(
+                  Uri.https("google.com")), // Пользовательское соглашение
               child: Row(
                 children: [
                   Image.asset(

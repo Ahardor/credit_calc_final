@@ -1,6 +1,7 @@
 import 'package:app/parameters.dart';
 import 'package:flutter/material.dart';
 import 'package:image_pixels/image_pixels.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class StartWidget extends StatefulWidget {
   const StartWidget({super.key});
@@ -181,8 +182,8 @@ class _StartWidgetState extends State<StartWidget> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     InkWell(
-                      onTap: () => Navigator.of(context).pushNamed(
-                          "/terms"), // Переход на страницу пользовательского соглашения
+                      onTap: () => launchUrl(Uri.https(
+                          "google.com")), // Переход на страницу пользовательского соглашения
                       child: Text(
                         "Terms of Use",
                         style: TextStyle(
@@ -198,8 +199,8 @@ class _StartWidgetState extends State<StartWidget> {
                       margin: const EdgeInsets.symmetric(horizontal: 30),
                     ),
                     InkWell(
-                      onTap: () => Navigator.of(context).pushNamed(
-                          "/policy"), // Переход на страницу политики конфиденциальности
+                      onTap: () => launchUrl(Uri.https(
+                          "google.com")), // Переход на страницу политики конфиденциальности
                       child: Text(
                         "Privacy Policy",
                         style: TextStyle(
